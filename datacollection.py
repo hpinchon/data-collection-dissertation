@@ -5,7 +5,7 @@ from datetime import datetime
 
 class WorkingFerryDiwanCollector:
     def __init__(self):
-        """EXACT countries from Ferry & Diwan (2025) Tables A1 & A2 from your screenshot"""
+        """countries from Ferry & Diwan (2025) Tables A1 & A2"""
         
         # Table A1 - Criteria 1: DSA = High Risk/Debt Distress (28 countries)
         self.criteria1_countries = [
