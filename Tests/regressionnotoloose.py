@@ -2,7 +2,7 @@ import statsmodels.formula.api as smf
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('your_dataset_interpolated.csv')
+df = pd.read_csv('ITHINKITSFULLNOW.csv')
 
 region_dict = {
     # Sub-Saharan Africa
@@ -64,7 +64,7 @@ inst_cols = [
     'Control_of_Corruption', 'Government_Effectiveness',
     'Rule_of_Law', 'Voice_and_Accountability', 'Regulatory_Quality', 'cbi_index'
 ]
-df['inst_quality'] = df[inst_cols].mean(axis=1)
+
 
 # Select macro controls
 macro_controls = [
@@ -74,11 +74,11 @@ macro_controls = [
 ]
 
 formula = (
-    "inst_quality ~ Treatment_Group_x + log_gdp_pc_2012 + C(region)"
+    "Government_Effectiveness ~ Treatment_Group_x + log_gdp_pc_2012 + C(region)"
 )
 
 # Drop missing values
-model_vars = ['inst_quality', 'Treatment_Group_x', 'region', 'log_gdp_pc_2012'] + macro_controls
+model_vars = ['Government_Effectiveness', 'Treatment_Group_x', 'region', 'log_gdp_pc_2012'] + macro_controls
 df_model = df[model_vars].dropna()
 
 # Run OLS regression

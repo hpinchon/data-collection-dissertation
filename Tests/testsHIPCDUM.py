@@ -89,9 +89,9 @@ for var in outcome_vars:
     # Use robust SEs for external financing vars, else cluster by region
     external_financing_vars = ['External_Debt_to_GNI','Debt_Service_to_Exports', 'cbi_index', 'Polity2_Score', 'Voice_and_Accountability', 'Regulatory_Quality', 'cpiamacr', 'cpiadebt']
     if var in external_financing_vars:
-        model = smf.ols(formula, data=merged).fit(cov_type='HC1')
+        model = smf.gls(formula, data=merged).fit(cov_type='HC1')
     else:
-        model = smf.ols(formula, data=merged).fit(cov_type='cluster', cov_kwds={'groups': merged['region']})
+        model = smf.gls(formula, data=merged).fit(cov_type='cluster', cov_kwds={'groups': merged['region']})
     est = model.params.get('Former_HIPC', np.nan)
     se = model.bse.get('Former_HIPC', np.nan)
     p = model.pvalues.get('Former_HIPC', np.nan)

@@ -123,13 +123,13 @@ class WorkingFerryDiwanCollector:
         
         # Core indicators
         indicators = {
-            'EIU_DI': 'Democracy Index',
-            'WB_WDI_IQ_CPA_DEBT_XQ': 'CPIA_debtpolicy_rating',
-            'WB_WDI_IQ_CPA_FINQ_XQ': 'CPIA_budgetary_and_financial_management_rating',
-            'WB_WDI_IQ_CPA_MACR_XQ': 'CPIA_macroeconomic_management_rating',
-            'WB_WDI_IQ_CPA_PADM_XQ': 'CPIA_public_admin_rating',
-            'WB_WDI_FM_LBL_BMNY_GD_ZS': 'Broad_money_to_GDP',
-            'WB_WDI_FR_INR_RINR': 'Real_interest_rate',
+            '': 'Democracy Index',
+            '': 'CPIA_debtpolicy_rating',
+            '': 'CPIA_budgetary_and_financial_management_rating',
+            '': 'CPIA_macroeconomic_management_rating',
+            '': 'CPIA_public_admin_rating',
+            '': 'Broad_money_to_GDP',
+            '': 'Real_interest_rate',
         }
         
         all_data_points = []

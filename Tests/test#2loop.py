@@ -86,9 +86,9 @@ for var in outcome_vars:
     external_financing_vars = ['External_Debt_to_GNI', 'Debt_Service_to_Exports', 'cbi_index', 'Polity2_Score', 'Voice_and_Accountability', 'Regulatory_Quality', 'cpiamacr', 'cpiadebt']
     formula = f"{var} ~ Treatment_Group_x + log_gdp_pc_2012 + C(region)"
     if var in external_financing_vars:
-        model = smf.ols(formula, data=merged).fit(cov_type='HC1')
+        model = smf.gls(formula, data=merged).fit(cov_type='HC1')
     else:
-        model = smf.ols(formula, data=merged).fit(cov_type='cluster', cov_kwds={'groups': merged['region']})
+        model = smf.gls(formula, data=merged).fit(cov_type='cluster', cov_kwds={'groups': merged['region']})
     est = model.params.get('Treatment_Group_x', np.nan)
     se = model.bse.get('Treatment_Group_x', np.nan)
     p = model.pvalues.get('Treatment_Group_x', np.nan)
